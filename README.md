@@ -1,2 +1,2 @@
 # Cs161-cocc
-classwork
+classwork excercises, nothin to see here >.<

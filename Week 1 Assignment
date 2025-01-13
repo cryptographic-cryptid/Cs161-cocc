@@ -1,0 +1,60 @@
+#import for datetime for task 3
+import calendar
+
+###################################################################################
+
+# Task 1: print pets name and type using an f-String.
+
+#variables
+
+pet_type = "cat"
+pet_name = "Blue"
+
+print(f"I have a {pet_type} and her name is {pet_name}")
+
+###################################################################################
+
+# Task 2: use f-strings in conjunction with input statements
+
+#User inputs for task 2
+
+first_name = input("Enter your first name: ")
+age = input("Enter your age: ")
+if int(age) > 95:
+    print("Get some sleep gramps")
+    exit()
+yearly_savings = input("Enter your yearly savings: ")
+
+print(f"Hello {first_name}! You are currently {age} years old. In 10 years you will be {int(age) + 10} years old.\n\
+If you save {yearly_savings} each year, in 5 years you will have saved ${int(yearly_savings) * 5}. Your average \n\
+monthly savings is ${int(yearly_savings) / 12}")
+
+###################################################################################
+
+# Task 3:
+
+#variables
+#month must be input with a leading 0 if the month number is less than 10. January --> month "1" --> input "01"
+#Not including a leading 0 will throw a range error for calender.monthrange
+
+year = int(input("What year is it? (YYYY)"))
+month = int(input("What month? (01 - 12)"))
+
+get_days = calendar.monthrange(year, month)
+print(f"There are {get_days[1] * 24 * 60 * 60} seconds in that month")
+
+###################################################################################
+
+# Task 4:
+
+#Divides eggs into dozens, accounts for remainder and provides conditional for whether or not egg(s) left over should
+#be plural or not
+
+num_eggs = input("How many eggs ye got partner?")
+if int(num_eggs) % 12 > 1:
+    print(f"Woooowee, that makes {round(int(num_eggs) / 12)} dozen eggs with {int(num_eggs) % 12} eggs left over\n\
+partnuh.")
+else:print(f"Woooowee, that makes {round(int(num_eggs) / 12)} dozen eggs with {int(num_eggs) % 12} egg left over\n\
+partnuh.")
+
+###################################################################################

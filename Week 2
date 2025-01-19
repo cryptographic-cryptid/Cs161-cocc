@@ -2,6 +2,7 @@
 
 # Task 1:
 # formats binary and hex to be more readable
+
 x = input ("Please enter a number between 0 and 255: ")
 bin = format(int(x),'08b')
 hex = hex(int(x))
@@ -28,6 +29,7 @@ x2 = 18
 # shows how variables can be assigned binary and hex values
 # 0b denotes binary notation
 # 0x denotes hex notation
+
 y = 0b1011
 z = 0xA3
 print(f"(Task 3): binary value y is = {format(y,"08b")} and hex value z is = {format(z, "2x")}")
@@ -37,6 +39,7 @@ print(f"(Task 3): binary value y is = {format(y,"08b")} and hex value z is = {fo
 # Task 4:
 
 # demonstrates that mathematical operations can be applied to numbers in any notation
+
 w = x2 + y + z
 print(f"(Task 4): the sum of x2, y and z is {w} ")
 
@@ -52,7 +55,8 @@ size_text_comp = 148
 compression = 1 - ((size_text_comp + size_dict) / size_original)
 dec_to_perc = round(compression * 10 **2, 2)
 
-# Long & ugly print statement echoes all compression variable and shows how they have been altered to yield compression
+# Long & ugly print statement echoes all compression variables and shows how they have been altered to yield compression
+
 print(f"\n Dictionary size: {str(size_dict)} characters \n "
 f"Original size: {str(size_original)} characters \n"
 f" Size of compressed text: {str(size_text_comp)} characters \n"
@@ -61,4 +65,25 @@ f" 1 - {size_text_comp} / {size_original} = {dec_to_perc}%\n"
 f" Compression = {dec_to_perc}%")
 
 ###################################################################################
-# Tried the extra credit for about 4 hours. Can't get it. Wanna pull my hair out. I tap out.
+# Extra credit 2's complement:
+# To be transparent, I worked alongside an AI assistant to come to this solution. I did however, learn a lot about
+# bitwise operators and how to use them in the process.
+
+#function for 2s complement:
+# if input < 0:
+# takes binary value 1 and multiplies it by 2 ^ (number of bits in system), then adds the negative input value
+# to the result.
+
+def twos_comp(input, bits = 8):
+    if input < 0:
+        input = (1 << bits) + input
+    return format(input, f'0{bits}b')
+
+# takes a user input between -128 and 127, feeds it to the function ^
+input = int(input("\nPlease enter a number between -128 and 127: "))
+if 127 >= input >= -128:
+    binary_representation = twos_comp(input)
+    print(f"The 2's complement representation of {input} is {binary_representation}")
+else:
+    print("Input out of range")
+

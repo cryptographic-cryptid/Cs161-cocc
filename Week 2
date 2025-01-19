@@ -1,0 +1,64 @@
+###################################################################################
+
+# Task 1:
+# formats binary and hex to be more readable
+x = input ("Please enter a number between 0 and 255: ")
+bin = format(int(x),'08b')
+hex = hex(int(x))
+print(f"(Task 1): The value of {x} in binary format is {bin}, and {hex} in hexadecimal format.")
+
+###################################################################################
+
+# Task 2:
+
+#Input 1.825 yields:
+#Traceback (most recent call last):
+# File "C:\Users\willi\PycharmProjects\IsaacWilliamsCS161_Week2\IsaacWilliams_Week2.py", line 5, in <module>
+#    print(f"The value of {x} is {bin(int(x))} in binary format and {hex(int(x))} in hexadecimal format.")
+#                                     ~~~^^^
+#ValueError: invalid literal for int() with base 10: '1.825'
+
+# I believe this error is thrown because 1.825 is a float data type instead of an int data type
+
+x2 = 18
+###################################################################################
+
+# Task 3:
+
+# shows how variables can be assigned binary and hex values
+# 0b denotes binary notation
+# 0x denotes hex notation
+y = 0b1011
+z = 0xA3
+print(f"(Task 3): binary value y is = {format(y,"08b")} and hex value z is = {format(z, "2x")}")
+
+###################################################################################
+
+# Task 4:
+
+# demonstrates that mathematical operations can be applied to numbers in any notation
+w = x2 + y + z
+print(f"(Task 4): the sum of x2, y and z is {w} ")
+
+###################################################################################
+
+# Compression 1:
+# establishes set values of dictionary, original size, compressed text size and equation for compression
+# converts decimal value to percent but multiplying result to 10 ^ 2 and then rounding
+
+size_original = 240
+size_dict = 25
+size_text_comp = 148
+compression = 1 - ((size_text_comp + size_dict) / size_original)
+dec_to_perc = round(compression * 10 **2, 2)
+
+# Long & ugly print statement echoes all compression variable and shows how they have been altered to yield compression
+print(f"\n Dictionary size: {str(size_dict)} characters \n "
+f"Original size: {str(size_original)} characters \n"
+f" Size of compressed text: {str(size_text_comp)} characters \n"
+f" Compression percentage = (1) - (size of compressed text) / (size of original text)\n"
+f" 1 - {size_text_comp} / {size_original} = {dec_to_perc}%\n"
+f" Compression = {dec_to_perc}%")
+
+###################################################################################
+# Tried the extra credit for about 4 hours. Can't get it. Wanna pull my hair out. I tap out.

@@ -1,0 +1,71 @@
+###################################################################################
+
+# Task 1
+
+# Requests user input for field "name"
+# Prints a greeting with the previously requested username inquiry
+
+user_name = input("Enter your name: ")
+print(f"Hello { user_name }!")
+
+###################################################################################
+
+# Task 2
+
+# Requests user input for field "age"
+# Prints an echo of the users age and tells them how old they will be in 5 years.
+
+# An error will occur of user_age is not converted to an int before trying to do a mathematical operation
+# Data type corrected in line 17 @ {int(user_age) + 5}
+#                                   ^^^
+user_age = input("Please enter your age: ")
+print(f"Your age is {user_age}, in 5 years from now you will be {int(user_age) + 5}")
+
+###################################################################################
+
+# Task 3
+# Requests user input for field of how many years they want added to their current age
+future_age = input("Please enter how many years you would like added to your current age: ")
+print(f"You are currently {user_age}, In {future_age} years, you will be {(int(user_age)) + int(future_age)}")
+
+###################################################################################
+
+# Task 4
+# Requests user input for the average amount of hours they work in a week as well as their hourly wage
+# Prints the users expected gross weekly and annual pay
+# round(x,y) limits the results to two decimal points for floats
+
+hours_worked = input("How many hours did you work on average in a week? ")
+float_hours = float(hours_worked)
+
+hourly_wage = input("How much do you get paid in an hour? Please do not include the $ symbol ")
+float_wage = float(hourly_wage)
+
+print(f"Your gross pay this week is ${round(float_wage * float_hours, 2)}, your estimated gross annual pay will be \n"
+f"about ${round(float_wage * float_hours * 52.1429, 2)}")
+
+###################################################################################
+
+# Exra credit, function that determines taxed income and subtracts it from untaxed gross income
+
+untaxed_gross = round(float_wage * float_hours * 52.1429, 2)
+
+def taxed_income(untaxed_gross, tax = 0):
+    if untaxed_gross <= 11600:
+        tax = .1
+    elif 11600 < untaxed_gross <= 47150:
+        tax = .12
+    elif 47150 < untaxed_gross <= 100525:
+        tax = .22
+    elif 100525 < untaxed_gross <= 191950:
+        tax = .24
+    elif 191950 < untaxed_gross <= 243725:
+        tax = .32
+    elif 243725 < untaxed_gross <= 609350:
+        tax = .35
+    else:
+        tax = .37
+    taxed_income = untaxed_gross * tax
+    return untaxed_gross - taxed_income
+
+print(f"Your expected annual income after taxes is {round(taxed_income(untaxed_gross),2)}")
